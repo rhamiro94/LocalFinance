@@ -1,4 +1,4 @@
 
-web: gunicorn Dash_app.ipynb:app.server
+web: gunicorn Dash_app:app.server
 
 
