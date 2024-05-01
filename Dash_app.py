@@ -1,6 +1,5 @@
-!pip install dash
-!pip install gunicorn
 
+import os
 import dash
 from dash import dcc, html
 from dash.dependencies import Input, Output
@@ -165,5 +164,5 @@ def update_tables(selected_month, categories):
     # Devolver los resultados para los componentes de la interfaz de usuario
     return pivot_table1.to_dict('records'), pivot_table2.to_dict('records'), scatter_fig, bar_fig
 if __name__ == '__main__':
-    app.run_server(debug=True)
+    app.run_server(debug=False, port=int(os.environ.get('PORT', 8080)))
 
