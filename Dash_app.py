@@ -1,4 +1,5 @@
 
+
 import os
 import dash
 from dash import dcc, html
@@ -8,6 +9,7 @@ import plotly.express as px
 import psycopg2
 import pandas as pd
 from datetime import datetime, timedelta
+from werkzeug.urls import url_quote  # Importa url_quote directamente
 
 
 # Conecta a la base de datos PostgreSQL
