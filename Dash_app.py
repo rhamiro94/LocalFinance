@@ -1,1111 +1,169 @@
-{
- "cells": [
-  {
-   "cell_type": "code",
-   "execution_count": 1,
-   "metadata": {},
-   "outputs": [
-    {
-     "name": "stdout",
-     "output_type": "stream",
-     "text": [
-      "Requirement already satisfied: dash in c:\\users\\lenovo\\onedrive\\escritorio\\lib\\site-packages (2.16.1)\n",
-      "Requirement already satisfied: requests in c:\\users\\lenovo\\onedrive\\escritorio\\lib\\site-packages (from dash) (2.31.0)\n",
-      "Requirement already satisfied: setuptools in c:\\users\\lenovo\\onedrive\\escritorio\\lib\\site-packages (from dash) (58.1.0)\n",
-      "Requirement already satisfied: nest-asyncio in c:\\users\\lenovo\\appdata\\roaming\\python\\python310\\site-packages (from dash) (1.5.8)\n",
-      "Requirement already satisfied: Werkzeug<3.1 in c:\\users\\lenovo\\onedrive\\escritorio\\lib\\site-packages (from dash) (3.0.2)\n",
-      "Requirement already satisfied: dash-table==5.0.0 in c:\\users\\lenovo\\onedrive\\escritorio\\lib\\site-packages (from dash) (5.0.0)\n",
-      "Requirement already satisfied: Flask<3.1,>=1.0.4 in c:\\users\\lenovo\\onedrive\\escritorio\\lib\\site-packages (from dash) (3.0.3)\n",
-      "Requirement already satisfied: dash-html-components==2.0.0 in c:\\users\\lenovo\\onedrive\\escritorio\\lib\\site-packages (from dash) (2.0.0)\n",
-      "Requirement already satisfied: typing-extensions>=4.1.1 in c:\\users\\lenovo\\onedrive\\escritorio\\lib\\site-packages (from dash) (4.9.0)\n",
-      "Requirement already satisfied: retrying in c:\\users\\lenovo\\onedrive\\escritorio\\lib\\site-packages (from dash) (1.3.4)\n",
-      "Requirement already satisfied: dash-core-components==2.0.0 in c:\\users\\lenovo\\onedrive\\escritorio\\lib\\site-packages (from dash) (2.0.0)\n",
-      "Requirement already satisfied: importlib-metadata in c:\\users\\lenovo\\onedrive\\escritorio\\lib\\site-packages (from dash) (6.11.0)\n",
-      "Requirement already satisfied: plotly>=5.0.0 in c:\\users\\lenovo\\onedrive\\escritorio\\lib\\site-packages (from dash) (5.21.0)\n",
-      "Requirement already satisfied: blinker>=1.6.2 in c:\\users\\lenovo\\onedrive\\escritorio\\lib\\site-packages (from Flask<3.1,>=1.0.4->dash) (1.7.0)\n",
-      "Requirement already satisfied: click>=8.1.3 in c:\\users\\lenovo\\onedrive\\escritorio\\lib\\site-packages (from Flask<3.1,>=1.0.4->dash) (8.1.7)\n",
-      "Requirement already satisfied: itsdangerous>=2.1.2 in c:\\users\\lenovo\\onedrive\\escritorio\\lib\\site-packages (from Flask<3.1,>=1.0.4->dash) (2.2.0)\n",
-      "Requirement already satisfied: Jinja2>=3.1.2 in c:\\users\\lenovo\\onedrive\\escritorio\\lib\\site-packages (from Flask<3.1,>=1.0.4->dash) (3.1.2)\n",
-      "Requirement already satisfied: colorama in c:\\users\\lenovo\\appdata\\roaming\\python\\python310\\site-packages (from click>=8.1.3->Flask<3.1,>=1.0.4->dash) (0.4.6)\n",
-      "Requirement already satisfied: MarkupSafe>=2.0 in c:\\users\\lenovo\\onedrive\\escritorio\\lib\\site-packages (from Jinja2>=3.1.2->Flask<3.1,>=1.0.4->dash) (2.1.3)\n",
-      "Requirement already satisfied: tenacity>=6.2.0 in c:\\users\\lenovo\\onedrive\\escritorio\\lib\\site-packages (from plotly>=5.0.0->dash) (8.2.3)\n",
-      "Requirement already satisfied: packaging in c:\\users\\lenovo\\appdata\\roaming\\python\\python310\\site-packages (from plotly>=5.0.0->dash) (23.2)\n",
-      "Requirement already satisfied: zipp>=0.5 in c:\\users\\lenovo\\onedrive\\escritorio\\lib\\site-packages (from importlib-metadata->dash) (3.17.0)\n",
-      "Requirement already satisfied: urllib3<3,>=1.21.1 in c:\\users\\lenovo\\onedrive\\escritorio\\lib\\site-packages (from requests->dash) (2.1.0)\n",
-      "Requirement already satisfied: charset-normalizer<4,>=2 in c:\\users\\lenovo\\onedrive\\escritorio\\lib\\site-packages (from requests->dash) (3.3.2)\n",
-      "Requirement already satisfied: idna<4,>=2.5 in c:\\users\\lenovo\\onedrive\\escritorio\\lib\\site-packages (from requests->dash) (3.6)\n",
-      "Requirement already satisfied: certifi>=2017.4.17 in c:\\users\\lenovo\\onedrive\\escritorio\\lib\\site-packages (from requests->dash) (2023.11.17)\n",
-      "Requirement already satisfied: six>=1.7.0 in c:\\users\\lenovo\\appdata\\roaming\\python\\python310\\site-packages (from retrying->dash) (1.16.0)\n"
-     ]
-    },
-    {
-     "name": "stderr",
-     "output_type": "stream",
-     "text": [
-      "WARNING: You are using pip version 21.2.4; however, version 24.0 is available.\n",
-      "You should consider upgrading via the 'C:\\Users\\Lenovo\\OneDrive\\Escritorio\\python.exe -m pip install --upgrade pip' command.\n"
-     ]
-    },
-    {
-     "name": "stdout",
-     "output_type": "stream",
-     "text": [
-      "Requirement already satisfied: gunicorn in c:\\users\\lenovo\\onedrive\\escritorio\\lib\\site-packages (22.0.0)\n",
-      "Requirement already satisfied: packaging in c:\\users\\lenovo\\appdata\\roaming\\python\\python310\\site-packages (from gunicorn) (23.2)\n"
-     ]
-    },
-    {
-     "name": "stderr",
-     "output_type": "stream",
-     "text": [
-      "WARNING: You are using pip version 21.2.4; however, version 24.0 is available.\n",
-      "You should consider upgrading via the 'C:\\Users\\Lenovo\\OneDrive\\Escritorio\\python.exe -m pip install --upgrade pip' command.\n"
-     ]
-    }
-   ],
-   "source": [
-    "!pip install dash\n",
-    "!pip install gunicorn"
-   ]
-  },
-  {
-   "cell_type": "code",
-   "execution_count": 2,
-   "metadata": {},
-   "outputs": [],
-   "source": [
-    "!pip freeze > requirements.txt\n",
-    "\n"
-   ]
-  },
-  {
-   "cell_type": "code",
-   "execution_count": 2,
-   "metadata": {},
-   "outputs": [
-    {
-     "name": "stderr",
-     "output_type": "stream",
-     "text": [
-      "C:\\Users\\Lenovo\\AppData\\Local\\Temp\\ipykernel_9084\\1062133182.py:4: UserWarning: \n",
-      "The dash_table package is deprecated. Please replace\n",
-      "`import dash_table` with `from dash import dash_table`\n",
-      "\n",
-      "Also, if you're using any of the table format helpers (e.g. Group), replace \n",
-      "`from dash_table.Format import Group` with \n",
-      "`from dash.dash_table.Format import Group`\n",
-      "  import dash_table\n"
-     ]
-    }
-   ],
-   "source": [
-    "import dash\n",
-    "from dash import dcc, html\n",
-    "from dash.dependencies import Input, Output\n",
-    "import dash_table\n",
-    "import plotly.express as px\n",
-    "import psycopg2\n",
-    "import pandas as pd"
-   ]
-  },
-  {
-   "cell_type": "code",
-   "execution_count": 3,
-   "metadata": {},
-   "outputs": [
-    {
-     "name": "stderr",
-     "output_type": "stream",
-     "text": [
-      "C:\\Users\\Lenovo\\AppData\\Local\\Temp\\ipykernel_9084\\4111266347.py:12: UserWarning: pandas only supports SQLAlchemy connectable (engine/connection) or database string URI or sqlite3 DBAPI2 connection. Other DBAPI2 objects are not tested. Please consider using SQLAlchemy.\n",
-      "  df = pd.read_sql(query, conn)\n"
-     ]
-    }
-   ],
-   "source": [
-    "\n",
-    "# Conecta a la base de datos PostgreSQL\n",
-    "conn = psycopg2.connect(\n",
-    "    host=\"localhost\",\n",
-    "    database=\"mav2024\",\n",
-    "    user=\"postgres\",\n",
-    "    password=\"Camila1995.\"\n",
-    ")\n",
-    "\n",
-    "# Define una función para cargar los datos de PostgreSQL en un DataFrame\n",
-    "def carga_df_psql():\n",
-    "    query = \"SELECT * FROM mav2024;\"\n",
-    "    df = pd.read_sql(query, conn)\n",
-    "    return df\n",
-    "\n",
-    "# Carga los datos de PostgreSQL en un DataFrame\n",
-    "df = carga_df_psql()"
-   ]
-  },
-  {
-   "cell_type": "code",
-   "execution_count": 4,
-   "metadata": {},
-   "outputs": [],
-   "source": [
-    "from datetime import datetime, timedelta\n"
-   ]
-  },
-  {
-   "cell_type": "code",
-   "execution_count": 5,
-   "metadata": {},
-   "outputs": [],
-   "source": [
-    "#Definimos algunas fechas \n",
-    "# Obtener la fecha actual\n",
-    "fecha_actual = datetime.now()\n",
-    "\n",
-    "# Construir la fecha de inicio del año actual\n",
-    "fecha_inicio_anio = datetime(fecha_actual.year, 1, 1)\n",
-    "\n",
-    "# Formato de fecha para la API (DD/MM/AA)\n",
-    "fecha_formato_api = \"%d/%m/%y\""
-   ]
-  },
-  {
-   "cell_type": "code",
-   "execution_count": 6,
-   "metadata": {},
-   "outputs": [],
-   "source": [
-    "df['Mes']=df['Fecha'].dt.month\n",
-    "\n",
-    "coltab1=['Tipo Instrumento', ' Monto', 'Mes']\n",
-    "# Define la propiedad 'columns' con las columnas seleccionadas\n",
-    "coltab2=['Segmento', 'Periodo', ' Tasa']"
-   ]
-  },
-  {
-   "cell_type": "code",
-   "execution_count": 7,
-   "metadata": {},
-   "outputs": [],
-   "source": [
-    "df_tab1 = df[coltab1].groupby(['Tipo Instrumento', 'Mes']).sum().groupby(level=0).cumsum().reset_index()\n",
-    "df_tab2= df[coltab2].groupby(['Segmento', 'Periodo']).mean().groupby(level=0).cumsum().reset_index()\n"
-   ]
-  },
-  {
-   "cell_type": "code",
-   "execution_count": 9,
-   "metadata": {},
-   "outputs": [
-    {
-     "data": {
-      "text/html": [
-       "<div>\n",
-       "<style scoped>\n",
-       "    .dataframe tbody tr th:only-of-type {\n",
-       "        vertical-align: middle;\n",
-       "    }\n",
-       "\n",
-       "    .dataframe tbody tr th {\n",
-       "        vertical-align: top;\n",
-       "    }\n",
-       "\n",
-       "    .dataframe thead th {\n",
-       "        text-align: right;\n",
-       "    }\n",
-       "</style>\n",
-       "<table border=\"1\" class=\"dataframe\">\n",
-       "  <thead>\n",
-       "    <tr style=\"text-align: right;\">\n",
-       "      <th>Mes</th>\n",
-       "      <th>Tipo Instrumento</th>\n",
-       "      <th>1</th>\n",
-       "      <th>2</th>\n",
-       "      <th>3</th>\n",
-       "      <th>4</th>\n",
-       "    </tr>\n",
-       "  </thead>\n",
-       "  <tbody>\n",
-       "    <tr>\n",
-       "      <th>0</th>\n",
-       "      <td>CPD</td>\n",
-       "      <td>6750000</td>\n",
-       "      <td>0</td>\n",
-       "      <td>0</td>\n",
-       "      <td>800000</td>\n",
-       "    </tr>\n",
-       "    <tr>\n",
-       "      <th>1</th>\n",
-       "      <td>ECHEQ</td>\n",
-       "      <td>2200440537</td>\n",
-       "      <td>1308777724</td>\n",
-       "      <td>2310032754</td>\n",
-       "      <td>704575812</td>\n",
-       "    </tr>\n",
-       "    <tr>\n",
-       "      <th>2</th>\n",
-       "      <td>PAGARE</td>\n",
-       "      <td>183588</td>\n",
-       "      <td>38000</td>\n",
-       "      <td>11000</td>\n",
-       "      <td>366000</td>\n",
-       "    </tr>\n",
-       "  </tbody>\n",
-       "</table>\n",
-       "</div>"
-      ],
-      "text/plain": [
-       "Mes Tipo Instrumento           1           2           3          4\n",
-       "0                CPD     6750000           0           0     800000\n",
-       "1              ECHEQ  2200440537  1308777724  2310032754  704575812\n",
-       "2             PAGARE      183588       38000       11000     366000"
-      ]
-     },
-     "execution_count": 9,
-     "metadata": {},
-     "output_type": "execute_result"
-    }
-   ],
-   "source": [
-    "pivot_table1 = df.pivot_table(index='Tipo Instrumento', columns='Mes', values=' Monto', aggfunc='sum', fill_value=0).reset_index()\n",
-    "pivot_table1"
-   ]
-  },
-  {
-   "cell_type": "code",
-   "execution_count": 10,
-   "metadata": {},
-   "outputs": [
-    {
-     "data": {
-      "text/html": [
-       "<div>\n",
-       "<style scoped>\n",
-       "    .dataframe tbody tr th:only-of-type {\n",
-       "        vertical-align: middle;\n",
-       "    }\n",
-       "\n",
-       "    .dataframe tbody tr th {\n",
-       "        vertical-align: top;\n",
-       "    }\n",
-       "\n",
-       "    .dataframe thead th {\n",
-       "        text-align: right;\n",
-       "    }\n",
-       "</style>\n",
-       "<table border=\"1\" class=\"dataframe\">\n",
-       "  <thead>\n",
-       "    <tr style=\"text-align: right;\">\n",
-       "      <th>Mes</th>\n",
-       "      <th>Tipo Instrumento</th>\n",
-       "      <th>1</th>\n",
-       "      <th>2</th>\n",
-       "      <th>3</th>\n",
-       "      <th>4</th>\n",
-       "      <th>Total</th>\n",
-       "    </tr>\n",
-       "  </thead>\n",
-       "  <tbody>\n",
-       "    <tr>\n",
-       "      <th>0</th>\n",
-       "      <td>CPD</td>\n",
-       "      <td>6750000</td>\n",
-       "      <td>0</td>\n",
-       "      <td>0</td>\n",
-       "      <td>800000</td>\n",
-       "      <td>7550000</td>\n",
-       "    </tr>\n",
-       "    <tr>\n",
-       "      <th>1</th>\n",
-       "      <td>ECHEQ</td>\n",
-       "      <td>2200440537</td>\n",
-       "      <td>1308777724</td>\n",
-       "      <td>2310032754</td>\n",
-       "      <td>704575812</td>\n",
-       "      <td>6523826827</td>\n",
-       "    </tr>\n",
-       "    <tr>\n",
-       "      <th>2</th>\n",
-       "      <td>PAGARE</td>\n",
-       "      <td>183588</td>\n",
-       "      <td>38000</td>\n",
-       "      <td>11000</td>\n",
-       "      <td>366000</td>\n",
-       "      <td>598588</td>\n",
-       "    </tr>\n",
-       "  </tbody>\n",
-       "</table>\n",
-       "</div>"
-      ],
-      "text/plain": [
-       "Mes Tipo Instrumento           1           2           3          4  \\\n",
-       "0                CPD     6750000           0           0     800000   \n",
-       "1              ECHEQ  2200440537  1308777724  2310032754  704575812   \n",
-       "2             PAGARE      183588       38000       11000     366000   \n",
-       "\n",
-       "Mes       Total  \n",
-       "0       7550000  \n",
-       "1    6523826827  \n",
-       "2        598588  "
-      ]
-     },
-     "execution_count": 10,
-     "metadata": {},
-     "output_type": "execute_result"
-    }
-   ],
-   "source": [
-    "# Lista de nombres de las columnas que deseas incluir en la suma\n",
-    "columnas_a_sumar = pivot_table1.columns[1:]  # Excluye la primera columna\n",
-    "\n",
-    "# Suma por fila, saltando la primera columna\n",
-    "pivot_table1['Total'] = pivot_table1[columnas_a_sumar].sum(axis=1)\n",
-    "pivot_table1"
-   ]
-  },
-  {
-   "cell_type": "code",
-   "execution_count": 11,
-   "metadata": {},
-   "outputs": [
-    {
-     "data": {
-      "text/html": [
-       "<div>\n",
-       "<style scoped>\n",
-       "    .dataframe tbody tr th:only-of-type {\n",
-       "        vertical-align: middle;\n",
-       "    }\n",
-       "\n",
-       "    .dataframe tbody tr th {\n",
-       "        vertical-align: top;\n",
-       "    }\n",
-       "\n",
-       "    .dataframe thead th {\n",
-       "        text-align: right;\n",
-       "    }\n",
-       "</style>\n",
-       "<table border=\"1\" class=\"dataframe\">\n",
-       "  <thead>\n",
-       "    <tr style=\"text-align: right;\">\n",
-       "      <th>Mes</th>\n",
-       "      <th>Tipo Instrumento</th>\n",
-       "      <th>1</th>\n",
-       "      <th>2</th>\n",
-       "      <th>3</th>\n",
-       "      <th>4</th>\n",
-       "      <th>Total</th>\n",
-       "    </tr>\n",
-       "  </thead>\n",
-       "  <tbody>\n",
-       "    <tr>\n",
-       "      <th>0</th>\n",
-       "      <td>CPD</td>\n",
-       "      <td>6750000</td>\n",
-       "      <td>0</td>\n",
-       "      <td>0</td>\n",
-       "      <td>800000</td>\n",
-       "      <td>7550000</td>\n",
-       "    </tr>\n",
-       "    <tr>\n",
-       "      <th>1</th>\n",
-       "      <td>ECHEQ</td>\n",
-       "      <td>2200440537</td>\n",
-       "      <td>1308777724</td>\n",
-       "      <td>2310032754</td>\n",
-       "      <td>704575812</td>\n",
-       "      <td>6523826827</td>\n",
-       "    </tr>\n",
-       "    <tr>\n",
-       "      <th>2</th>\n",
-       "      <td>PAGARE</td>\n",
-       "      <td>183588</td>\n",
-       "      <td>38000</td>\n",
-       "      <td>11000</td>\n",
-       "      <td>366000</td>\n",
-       "      <td>598588</td>\n",
-       "    </tr>\n",
-       "    <tr>\n",
-       "      <th>Total por Columna</th>\n",
-       "      <td>Total</td>\n",
-       "      <td>2207374125</td>\n",
-       "      <td>1308815724</td>\n",
-       "      <td>2310043754</td>\n",
-       "      <td>705741812</td>\n",
-       "      <td>6531975415</td>\n",
-       "    </tr>\n",
-       "  </tbody>\n",
-       "</table>\n",
-       "</div>"
-      ],
-      "text/plain": [
-       "Mes               Tipo Instrumento           1           2           3  \\\n",
-       "0                              CPD     6750000           0           0   \n",
-       "1                            ECHEQ  2200440537  1308777724  2310032754   \n",
-       "2                           PAGARE      183588       38000       11000   \n",
-       "Total por Columna            Total  2207374125  1308815724  2310043754   \n",
-       "\n",
-       "Mes                        4       Total  \n",
-       "0                     800000     7550000  \n",
-       "1                  704575812  6523826827  \n",
-       "2                     366000      598588  \n",
-       "Total por Columna  705741812  6531975415  "
-      ]
-     },
-     "execution_count": 11,
-     "metadata": {},
-     "output_type": "execute_result"
-    }
-   ],
-   "source": [
-    "# Suma por columna\n",
-    "suma_por_columna = pivot_table1.iloc[:, 1:].sum()\n",
-    "\n",
-    "# Agregar la fila de suma por columna a pivot_table1\n",
-    "pivot_table1.loc['Total por Columna'] = ['Total'] + suma_por_columna.tolist()\n",
-    "pivot_table1"
-   ]
-  },
-  {
-   "cell_type": "code",
-   "execution_count": 12,
-   "metadata": {},
-   "outputs": [
-    {
-     "data": {
-      "text/html": [
-       "<div>\n",
-       "<style scoped>\n",
-       "    .dataframe tbody tr th:only-of-type {\n",
-       "        vertical-align: middle;\n",
-       "    }\n",
-       "\n",
-       "    .dataframe tbody tr th {\n",
-       "        vertical-align: top;\n",
-       "    }\n",
-       "\n",
-       "    .dataframe thead th {\n",
-       "        text-align: right;\n",
-       "    }\n",
-       "</style>\n",
-       "<table border=\"1\" class=\"dataframe\">\n",
-       "  <thead>\n",
-       "    <tr style=\"text-align: right;\">\n",
-       "      <th>Periodo</th>\n",
-       "      <th>Segmento</th>\n",
-       "      <th>0 a 60</th>\n",
-       "      <th>120 a 180</th>\n",
-       "      <th>180 a 210</th>\n",
-       "      <th>210 a 240</th>\n",
-       "      <th>240 a 300</th>\n",
-       "      <th>60 a 90</th>\n",
-       "      <th>90 a 120</th>\n",
-       "      <th>Más de 300</th>\n",
-       "    </tr>\n",
-       "  </thead>\n",
-       "  <tbody>\n",
-       "    <tr>\n",
-       "      <th>0</th>\n",
-       "      <td>Avalado</td>\n",
-       "      <td>69.166667</td>\n",
-       "      <td>91.060000</td>\n",
-       "      <td>101.875</td>\n",
-       "      <td>103.75</td>\n",
-       "      <td>0.0</td>\n",
-       "      <td>78.709677</td>\n",
-       "      <td>92.405405</td>\n",
-       "      <td>1.333333</td>\n",
-       "    </tr>\n",
-       "    <tr>\n",
-       "      <th>1</th>\n",
-       "      <td>DIRECTO</td>\n",
-       "      <td>85.000000</td>\n",
-       "      <td>4.000000</td>\n",
-       "      <td>0.000</td>\n",
-       "      <td>0.00</td>\n",
-       "      <td>5.0</td>\n",
-       "      <td>0.000000</td>\n",
-       "      <td>110.000000</td>\n",
-       "      <td>7.500000</td>\n",
-       "    </tr>\n",
-       "    <tr>\n",
-       "      <th>2</th>\n",
-       "      <td>GARANTIZADO</td>\n",
-       "      <td>90.838095</td>\n",
-       "      <td>104.666667</td>\n",
-       "      <td>135.000</td>\n",
-       "      <td>135.00</td>\n",
-       "      <td>135.0</td>\n",
-       "      <td>93.558559</td>\n",
-       "      <td>104.625000</td>\n",
-       "      <td>135.000000</td>\n",
-       "    </tr>\n",
-       "    <tr>\n",
-       "      <th>3</th>\n",
-       "      <td>Garantizado</td>\n",
-       "      <td>0.000000</td>\n",
-       "      <td>0.000000</td>\n",
-       "      <td>0.000</td>\n",
-       "      <td>0.00</td>\n",
-       "      <td>0.0</td>\n",
-       "      <td>0.000000</td>\n",
-       "      <td>50.000000</td>\n",
-       "      <td>0.000000</td>\n",
-       "    </tr>\n",
-       "    <tr>\n",
-       "      <th>4</th>\n",
-       "      <td>No Garantizado</td>\n",
-       "      <td>75.000000</td>\n",
-       "      <td>0.000000</td>\n",
-       "      <td>0.000</td>\n",
-       "      <td>0.00</td>\n",
-       "      <td>0.0</td>\n",
-       "      <td>0.000000</td>\n",
-       "      <td>0.000000</td>\n",
-       "      <td>5.000000</td>\n",
-       "    </tr>\n",
-       "  </tbody>\n",
-       "</table>\n",
-       "</div>"
-      ],
-      "text/plain": [
-       "Periodo        Segmento     0 a 60   120 a 180  180 a 210  210 a 240  \\\n",
-       "0               Avalado  69.166667   91.060000    101.875     103.75   \n",
-       "1               DIRECTO  85.000000    4.000000      0.000       0.00   \n",
-       "2           GARANTIZADO  90.838095  104.666667    135.000     135.00   \n",
-       "3           Garantizado   0.000000    0.000000      0.000       0.00   \n",
-       "4        No Garantizado  75.000000    0.000000      0.000       0.00   \n",
-       "\n",
-       "Periodo  240 a 300    60 a 90    90 a 120  Más de 300  \n",
-       "0              0.0  78.709677   92.405405    1.333333  \n",
-       "1              5.0   0.000000  110.000000    7.500000  \n",
-       "2            135.0  93.558559  104.625000  135.000000  \n",
-       "3              0.0   0.000000   50.000000    0.000000  \n",
-       "4              0.0   0.000000    0.000000    5.000000  "
-      ]
-     },
-     "execution_count": 12,
-     "metadata": {},
-     "output_type": "execute_result"
-    }
-   ],
-   "source": [
-    "pivot_table2 = df.pivot_table(index='Segmento', columns='Periodo', values=' Tasa', aggfunc='mean', fill_value=0).reset_index()\n",
-    "pivot_table2"
-   ]
-  },
-  {
-   "cell_type": "code",
-   "execution_count": 13,
-   "metadata": {},
-   "outputs": [],
-   "source": [
-    "pivot_table1 = pivot_table1.apply(pd.to_numeric, errors='ignore')\n"
-   ]
-  },
-  {
-   "cell_type": "code",
-   "execution_count": 14,
-   "metadata": {},
-   "outputs": [
-    {
-     "data": {
-      "text/html": [
-       "<div>\n",
-       "<style scoped>\n",
-       "    .dataframe tbody tr th:only-of-type {\n",
-       "        vertical-align: middle;\n",
-       "    }\n",
-       "\n",
-       "    .dataframe tbody tr th {\n",
-       "        vertical-align: top;\n",
-       "    }\n",
-       "\n",
-       "    .dataframe thead th {\n",
-       "        text-align: right;\n",
-       "    }\n",
-       "</style>\n",
-       "<table border=\"1\" class=\"dataframe\">\n",
-       "  <thead>\n",
-       "    <tr style=\"text-align: right;\">\n",
-       "      <th>Mes</th>\n",
-       "      <th>Tipo Instrumento</th>\n",
-       "      <th>1</th>\n",
-       "      <th>2</th>\n",
-       "      <th>3</th>\n",
-       "      <th>4</th>\n",
-       "      <th>Total</th>\n",
-       "      <th>Total por Instrumento</th>\n",
-       "    </tr>\n",
-       "  </thead>\n",
-       "  <tbody>\n",
-       "    <tr>\n",
-       "      <th>0</th>\n",
-       "      <td>CPD</td>\n",
-       "      <td>6750000</td>\n",
-       "      <td>0</td>\n",
-       "      <td>0</td>\n",
-       "      <td>800000</td>\n",
-       "      <td>7550000</td>\n",
-       "      <td>NaN</td>\n",
-       "    </tr>\n",
-       "    <tr>\n",
-       "      <th>1</th>\n",
-       "      <td>ECHEQ</td>\n",
-       "      <td>2200440537</td>\n",
-       "      <td>1308777724</td>\n",
-       "      <td>2310032754</td>\n",
-       "      <td>704575812</td>\n",
-       "      <td>6523826827</td>\n",
-       "      <td>4414748250</td>\n",
-       "    </tr>\n",
-       "    <tr>\n",
-       "      <th>2</th>\n",
-       "      <td>PAGARE</td>\n",
-       "      <td>183588</td>\n",
-       "      <td>38000</td>\n",
-       "      <td>11000</td>\n",
-       "      <td>366000</td>\n",
-       "      <td>598588</td>\n",
-       "      <td>2617631448</td>\n",
-       "    </tr>\n",
-       "    <tr>\n",
-       "      <th>Total por Columna</th>\n",
-       "      <td>Total</td>\n",
-       "      <td>2207374125</td>\n",
-       "      <td>1308815724</td>\n",
-       "      <td>2310043754</td>\n",
-       "      <td>705741812</td>\n",
-       "      <td>6531975415</td>\n",
-       "      <td>NaN</td>\n",
-       "    </tr>\n",
-       "  </tbody>\n",
-       "</table>\n",
-       "</div>"
-      ],
-      "text/plain": [
-       "Mes               Tipo Instrumento           1           2           3  \\\n",
-       "0                              CPD     6750000           0           0   \n",
-       "1                            ECHEQ  2200440537  1308777724  2310032754   \n",
-       "2                           PAGARE      183588       38000       11000   \n",
-       "Total por Columna            Total  2207374125  1308815724  2310043754   \n",
-       "\n",
-       "Mes                        4       Total Total por Instrumento  \n",
-       "0                     800000     7550000                   NaN  \n",
-       "1                  704575812  6523826827            4414748250  \n",
-       "2                     366000      598588            2617631448  \n",
-       "Total por Columna  705741812  6531975415                   NaN  "
-      ]
-     },
-     "execution_count": 14,
-     "metadata": {},
-     "output_type": "execute_result"
-    }
-   ],
-   "source": [
-    "# Agregar totales por fila (totales por tipo de instrumento)\n",
-    "pivot_table1['Total por Instrumento'] = pivot_table1.sum()\n",
-    "pivot_table1\n"
-   ]
-  },
-  {
-   "cell_type": "code",
-   "execution_count": 16,
-   "metadata": {},
-   "outputs": [],
-   "source": [
-    "meses = df['Mes'].unique()\n"
-   ]
-  },
-  {
-   "cell_type": "code",
-   "execution_count": 17,
-   "metadata": {},
-   "outputs": [
-    {
-     "data": {
-      "text/html": [
-       "<div>\n",
-       "<style scoped>\n",
-       "    .dataframe tbody tr th:only-of-type {\n",
-       "        vertical-align: middle;\n",
-       "    }\n",
-       "\n",
-       "    .dataframe tbody tr th {\n",
-       "        vertical-align: top;\n",
-       "    }\n",
-       "\n",
-       "    .dataframe thead th {\n",
-       "        text-align: right;\n",
-       "    }\n",
-       "</style>\n",
-       "<table border=\"1\" class=\"dataframe\">\n",
-       "  <thead>\n",
-       "    <tr style=\"text-align: right;\">\n",
-       "      <th></th>\n",
-       "      <th>Mes</th>\n",
-       "      <th>Segmento</th>\n",
-       "      <th>Monto</th>\n",
-       "    </tr>\n",
-       "  </thead>\n",
-       "  <tbody>\n",
-       "    <tr>\n",
-       "      <th>0</th>\n",
-       "      <td>1</td>\n",
-       "      <td>Avalado</td>\n",
-       "      <td>1184679557</td>\n",
-       "    </tr>\n",
-       "    <tr>\n",
-       "      <th>1</th>\n",
-       "      <td>1</td>\n",
-       "      <td>DIRECTO</td>\n",
-       "      <td>20082000</td>\n",
-       "    </tr>\n",
-       "    <tr>\n",
-       "      <th>2</th>\n",
-       "      <td>1</td>\n",
-       "      <td>GARANTIZADO</td>\n",
-       "      <td>1002612568</td>\n",
-       "    </tr>\n",
-       "    <tr>\n",
-       "      <th>3</th>\n",
-       "      <td>2</td>\n",
-       "      <td>Avalado</td>\n",
-       "      <td>849805724</td>\n",
-       "    </tr>\n",
-       "    <tr>\n",
-       "      <th>4</th>\n",
-       "      <td>2</td>\n",
-       "      <td>DIRECTO</td>\n",
-       "      <td>12010000</td>\n",
-       "    </tr>\n",
-       "    <tr>\n",
-       "      <th>5</th>\n",
-       "      <td>2</td>\n",
-       "      <td>GARANTIZADO</td>\n",
-       "      <td>447000000</td>\n",
-       "    </tr>\n",
-       "    <tr>\n",
-       "      <th>6</th>\n",
-       "      <td>3</td>\n",
-       "      <td>Avalado</td>\n",
-       "      <td>959043154</td>\n",
-       "    </tr>\n",
-       "    <tr>\n",
-       "      <th>7</th>\n",
-       "      <td>3</td>\n",
-       "      <td>DIRECTO</td>\n",
-       "      <td>11000</td>\n",
-       "    </tr>\n",
-       "    <tr>\n",
-       "      <th>8</th>\n",
-       "      <td>3</td>\n",
-       "      <td>GARANTIZADO</td>\n",
-       "      <td>1350989600</td>\n",
-       "    </tr>\n",
-       "    <tr>\n",
-       "      <th>9</th>\n",
-       "      <td>4</td>\n",
-       "      <td>Avalado</td>\n",
-       "      <td>628622812</td>\n",
-       "    </tr>\n",
-       "    <tr>\n",
-       "      <th>10</th>\n",
-       "      <td>4</td>\n",
-       "      <td>GARANTIZADO</td>\n",
-       "      <td>62000000</td>\n",
-       "    </tr>\n",
-       "    <tr>\n",
-       "      <th>11</th>\n",
-       "      <td>4</td>\n",
-       "      <td>Garantizado</td>\n",
-       "      <td>10000000</td>\n",
-       "    </tr>\n",
-       "    <tr>\n",
-       "      <th>12</th>\n",
-       "      <td>4</td>\n",
-       "      <td>No Garantizado</td>\n",
-       "      <td>5119000</td>\n",
-       "    </tr>\n",
-       "  </tbody>\n",
-       "</table>\n",
-       "</div>"
-      ],
-      "text/plain": [
-       "    Mes        Segmento       Monto\n",
-       "0     1         Avalado  1184679557\n",
-       "1     1         DIRECTO    20082000\n",
-       "2     1     GARANTIZADO  1002612568\n",
-       "3     2         Avalado   849805724\n",
-       "4     2         DIRECTO    12010000\n",
-       "5     2     GARANTIZADO   447000000\n",
-       "6     3         Avalado   959043154\n",
-       "7     3         DIRECTO       11000\n",
-       "8     3     GARANTIZADO  1350989600\n",
-       "9     4         Avalado   628622812\n",
-       "10    4     GARANTIZADO    62000000\n",
-       "11    4     Garantizado    10000000\n",
-       "12    4  No Garantizado     5119000"
-      ]
-     },
-     "execution_count": 17,
-     "metadata": {},
-     "output_type": "execute_result"
-    }
-   ],
-   "source": [
-    "##Acumulado para barras\n",
-    "accumulated_df= df.groupby(['Mes', 'Segmento'])[' Monto'].sum().reset_index()\n",
-    "accumulated_df"
-   ]
-  },
-  {
-   "cell_type": "code",
-   "execution_count": 31,
-   "metadata": {},
-   "outputs": [
-    {
-     "data": {
-      "text/html": [
-       "<div>\n",
-       "<style scoped>\n",
-       "    .dataframe tbody tr th:only-of-type {\n",
-       "        vertical-align: middle;\n",
-       "    }\n",
-       "\n",
-       "    .dataframe tbody tr th {\n",
-       "        vertical-align: top;\n",
-       "    }\n",
-       "\n",
-       "    .dataframe thead th {\n",
-       "        text-align: right;\n",
-       "    }\n",
-       "</style>\n",
-       "<table border=\"1\" class=\"dataframe\">\n",
-       "  <thead>\n",
-       "    <tr style=\"text-align: right;\">\n",
-       "      <th>Mes</th>\n",
-       "      <th>Tipo Instrumento</th>\n",
-       "      <th>1</th>\n",
-       "      <th>2</th>\n",
-       "      <th>3</th>\n",
-       "      <th>4</th>\n",
-       "      <th>Total</th>\n",
-       "    </tr>\n",
-       "  </thead>\n",
-       "  <tbody>\n",
-       "    <tr>\n",
-       "      <th>0</th>\n",
-       "      <td>CPD</td>\n",
-       "      <td>6750000</td>\n",
-       "      <td>0</td>\n",
-       "      <td>0</td>\n",
-       "      <td>800000</td>\n",
-       "      <td>7550000</td>\n",
-       "    </tr>\n",
-       "    <tr>\n",
-       "      <th>1</th>\n",
-       "      <td>ECHEQ</td>\n",
-       "      <td>2200440537</td>\n",
-       "      <td>1308777724</td>\n",
-       "      <td>2310032754</td>\n",
-       "      <td>704575812</td>\n",
-       "      <td>6523826827</td>\n",
-       "    </tr>\n",
-       "    <tr>\n",
-       "      <th>2</th>\n",
-       "      <td>PAGARE</td>\n",
-       "      <td>183588</td>\n",
-       "      <td>38000</td>\n",
-       "      <td>11000</td>\n",
-       "      <td>366000</td>\n",
-       "      <td>598588</td>\n",
-       "    </tr>\n",
-       "    <tr>\n",
-       "      <th>Total por Columna</th>\n",
-       "      <td>Total</td>\n",
-       "      <td>2207374125</td>\n",
-       "      <td>1308815724</td>\n",
-       "      <td>2310043754</td>\n",
-       "      <td>705741812</td>\n",
-       "      <td>6531975415</td>\n",
-       "    </tr>\n",
-       "  </tbody>\n",
-       "</table>\n",
-       "</div>"
-      ],
-      "text/plain": [
-       "Mes               Tipo Instrumento           1           2           3  \\\n",
-       "0                              CPD     6750000           0           0   \n",
-       "1                            ECHEQ  2200440537  1308777724  2310032754   \n",
-       "2                           PAGARE      183588       38000       11000   \n",
-       "Total por Columna            Total  2207374125  1308815724  2310043754   \n",
-       "\n",
-       "Mes                        4       Total  \n",
-       "0                     800000     7550000  \n",
-       "1                  704575812  6523826827  \n",
-       "2                     366000      598588  \n",
-       "Total por Columna  705741812  6531975415  "
-      ]
-     },
-     "execution_count": 31,
-     "metadata": {},
-     "output_type": "execute_result"
-    }
-   ],
-   "source": [
-    "pivot_table1.drop(columns=['Total por Instrumento'], inplace=True)\n",
-    "pivot_table1"
-   ]
-  },
-  {
-   "cell_type": "code",
-   "execution_count": 33,
-   "metadata": {},
-   "outputs": [
-    {
-     "data": {
-      "text/html": [
-       "\n",
-       "        <iframe\n",
-       "            width=\"100%\"\n",
-       "            height=\"650\"\n",
-       "            src=\"http://127.0.0.1:8050/\"\n",
-       "            frameborder=\"0\"\n",
-       "            allowfullscreen\n",
-       "            \n",
-       "        ></iframe>\n",
-       "        "
-      ],
-      "text/plain": [
-       "<IPython.lib.display.IFrame at 0x235c36e9de0>"
-      ]
-     },
-     "metadata": {},
-     "output_type": "display_data"
-    }
-   ],
-   "source": [
-    "\n",
-    "\n",
-    "# Supongamos que ya tienes definido tu dataframe df\n",
-    "\n",
-    "app = dash.Dash(__name__)\n",
-    "\n",
-    "# Define tus datos, por ejemplo df para el dataframe de tus datos\n",
-    "\n",
-    "app.layout = html.Div([\n",
-    "        html.H1(\"MAV 2024 ARG VALORES\"),\n",
-    "    \n",
-    "        html.Label(\"Selecciona un mes:\"),\n",
-    "        dcc.Dropdown(\n",
-    "        id='month-dropdown',\n",
-    "        options=[{'label': mes, 'value': mes} for mes in meses],\n",
-    "        value=meses.tolist(),\n",
-    "        multi=True,  # Establecer el valor predeterminado como el primer mes en el dataframe\n",
-    "    ),\n",
-    "        \n",
-    "    html.Label(\"Selecciona Segmento:\"),\n",
-    "    dcc.Dropdown(\n",
-    "        id='category-dropdown',\n",
-    "        options=[{'label': category, 'value': category} for category in df['Segmento'].unique()],  # Define las opciones del dropdown\n",
-    "        value=[],\n",
-    "        multi=True,\n",
-    "    ),\n",
-    "    html.Div([\n",
-    "        dash_table.DataTable(\n",
-    "            id='table-1',\n",
-    "            columns=[{'name': str(col), 'id': str(col)} for col in pivot_table1.columns],  # Define las columnas de la tabla\n",
-    "            data=pivot_table1.to_dict('records'),\n",
-    "            style_table={'overflowX': 'auto'},  # Ajustar el ancho de la tabla al contenido\n",
-    "            style_cell={'textAlign': 'center'},  # Define los datos de la tabla\n",
-    "        )\n",
-    "    ], style={'display': 'inline-block', 'width': '48%','marginRight': '2%'}),\n",
-    "    html.Div([\n",
-    "        dash_table.DataTable(\n",
-    "            id='table-2',\n",
-    "            columns=[{'name': str(col), 'id': str(col)} for col in pivot_table2.columns],  \n",
-    "            data=pivot_table2.to_dict('records'),  \n",
-    "            style_table={'overflowX': 'auto'}, \n",
-    "            style_cell={'textAlign': 'center'},\n",
-    "        )\n",
-    "    ], style={'display': 'inline-block', 'width': '50%'}),\n",
-    "    html.Div([\n",
-    "        dcc.Graph(\n",
-    "            id='scatter-plot',\n",
-    "            figure=px.scatter(df, x='dias_entre_fechas', y=' Tasa', color='Segmento', title='Scatter Plot') ,\n",
-    "        )\n",
-    "    ], style={'display': 'inline-block', 'width': '50%'}),\n",
-    "    html.Div([\n",
-    "        dcc.Graph(\n",
-    "            id='bar-chart',\n",
-    "            figure=px.bar(accumulated_df, x='Mes', y=' Monto', color='Segmento', barmode='stack', title='Insturmentos operados por mes'),  # Define la figura del gráfico de barras\n",
-    "        )\n",
-    "    ], style={'display': 'inline-block', 'width': '50%'}),   \n",
-    "\n",
-    "])\n",
-    "\n",
-    "# Callback para actualizar las tablas\n",
-    "\n",
-    "\n",
-    "# Callback para actualizar las tablas\n",
-    "# Callback para actualizar las tablas\n",
-    "@app.callback(\n",
-    "    Output('table-1', 'data'),\n",
-    "    Output('table-2', 'data'),\n",
-    "    Output('scatter-plot', 'figure'),\n",
-    "    Output('bar-chart', 'figure'),\n",
-    "    Input('month-dropdown', 'value'),\n",
-    "    Input('category-dropdown', 'value')\n",
-    ")\n",
-    "\n",
-    "def update_tables(selected_month, categories):\n",
-    "    # Copiar el DataFrame original para evitar modificarlo directamente\n",
-    "    filtered_df = df.copy()\n",
-    "\n",
-    "    # Filtrar por mes seleccionado\n",
-    "    if selected_month:  \n",
-    "        filtered_df = filtered_df[filtered_df['Mes'].isin(selected_month)]\n",
-    "\n",
-    "    # Filtrar por categorías seleccionadas\n",
-    "    if categories:\n",
-    "        filtered_df = filtered_df[filtered_df['Segmento'].isin(categories)]\n",
-    "    \n",
-    "    # Crear tablas pivotantes y figuras\n",
-    "    # Suma por fila, saltando la primera columna\n",
-    "    pivot_table1['Total'] = pivot_table1[columnas_a_sumar].sum(axis=1)\n",
-    "    pivot_table1.loc['Total por Columna'] = ['Total'] + suma_por_columna.tolist()\n",
-    "\n",
-    "    pivot_table2 = filtered_df.pivot_table(index='Segmento', columns='Periodo', values=' Tasa', aggfunc='mean', fill_value=0).reset_index()\n",
-    "    scatter_fig = px.scatter(filtered_df, x='dias_entre_fechas', y=' Tasa', color='Segmento', title='Scatter Plot')\n",
-    "    bar_fig =  px.bar(accumulated_df, x='Mes', y=' Monto', color='Segmento', barmode='stack', title='Instrumentos operados por mes')\n",
-    "    pivot_table2 = pivot_table2.round(2)\n",
-    "\n",
-    "    # Devolver los resultados para los componentes de la interfaz de usuario\n",
-    "    return pivot_table1.to_dict('records'), pivot_table2.to_dict('records'), scatter_fig, bar_fig\n",
-    "if __name__ == '__main__':\n",
-    "    app.run_server(debug=True)"
-   ]
-  }
- ],
- "metadata": {
-  "kernelspec": {
-   "display_name": "Python 3",
-   "language": "python",
-   "name": "python3"
-  },
-  "language_info": {
-   "codemirror_mode": {
-    "name": "ipython",
-    "version": 3
-   },
-   "file_extension": ".py",
-   "mimetype": "text/x-python",
-   "name": "python",
-   "nbconvert_exporter": "python",
-   "pygments_lexer": "ipython3",
-   "version": "3.10.2"
-  }
- },
- "nbformat": 4,
- "nbformat_minor": 2
-}
+!pip install dash
+!pip install gunicorn
+
+import dash
+from dash import dcc, html
+from dash.dependencies import Input, Output
+import dash_table
+import plotly.express as px
+import psycopg2
+import pandas as pd
+from datetime import datetime, timedelta
+
+
+# Conecta a la base de datos PostgreSQL
+conn = psycopg2.connect(
+    host="localhost",
+    database="mav2024",
+    user="postgres",
+    password="Camila1995."
+)
+
+# Define una función para cargar los datos de PostgreSQL en un DataFrame
+def carga_df_psql():
+    query = "SELECT * FROM mav2024;"
+    df = pd.read_sql(query, conn)
+    return df
+
+# Carga los datos de PostgreSQL en un DataFrame
+df = carga_df_psql()
+
+#Definimos algunas fechas 
+# Obtener la fecha actual
+fecha_actual = datetime.now()
+
+# Construir la fecha de inicio del año actual
+fecha_inicio_anio = datetime(fecha_actual.year, 1, 1)
+
+# Formato de fecha para la API (DD/MM/AA)
+fecha_formato_api = "%d/%m/%y"
+
+df['Mes']=df['Fecha'].dt.month
+
+coltab1=['Tipo Instrumento', ' Monto', 'Mes']
+# Define la propiedad 'columns' con las columnas seleccionadas
+coltab2=['Segmento', 'Periodo', ' Tasa']
+
+df_tab1 = df[coltab1].groupby(['Tipo Instrumento', 'Mes']).sum().groupby(level=0).cumsum().reset_index()
+df_tab2= df[coltab2].groupby(['Segmento', 'Periodo']).mean().groupby(level=0).cumsum().reset_index()
+
+pivot_table1 = df.pivot_table(index='Tipo Instrumento', columns='Mes', values=' Monto', aggfunc='sum', fill_value=0).reset_index()
+
+columnas_a_sumar = pivot_table1.columns[1:]  # Excluye la primera columna
+
+# Suma por fila, saltando la primera columna
+pivot_table1['Total'] = pivot_table1[columnas_a_sumar].sum(axis=1)
+
+suma_por_columna = pivot_table1.iloc[:, 1:].sum()
+
+# Agregar la fila de suma por columna a pivot_table1
+pivot_table1.loc['Total por Columna'] = ['Total'] + suma_por_columna.tolist()
+
+pivot_table2 = df.pivot_table(index='Segmento', columns='Periodo', values=' Tasa', aggfunc='mean', fill_value=0).reset_index()
+
+pivot_table1 = pivot_table1.apply(pd.to_numeric, errors='ignore')
+
+pivot_table1['Total por Instrumento'] = pivot_table1.sum()
+
+meses = df['Mes'].unique()
+accumulated_df= df.groupby(['Mes', 'Segmento'])[' Monto'].sum().reset_index()
+pivot_table1.drop(columns=['Total por Instrumento'], inplace=True)
+
+# Supongamos que ya tienes definido tu dataframe df
+
+app = dash.Dash(__name__)
+
+# Define tus datos, por ejemplo df para el dataframe de tus datos
+
+app.layout = html.Div([
+        html.H1("MAV 2024 ARG VALORES"),
+    
+        html.Label("Selecciona un mes:"),
+        dcc.Dropdown(
+        id='month-dropdown',
+        options=[{'label': mes, 'value': mes} for mes in meses],
+        value=meses.tolist(),
+        multi=True,  # Establecer el valor predeterminado como el primer mes en el dataframe
+    ),
+        
+    html.Label("Selecciona Segmento:"),
+    dcc.Dropdown(
+        id='category-dropdown',
+        options=[{'label': category, 'value': category} for category in df['Segmento'].unique()],  # Define las opciones del dropdown
+        value=[],
+        multi=True,
+    ),
+    html.Div([
+        dash_table.DataTable(
+            id='table-1',
+            columns=[{'name': str(col), 'id': str(col)} for col in pivot_table1.columns],  # Define las columnas de la tabla
+            data=pivot_table1.to_dict('records'),
+            style_table={'overflowX': 'auto'},  # Ajustar el ancho de la tabla al contenido
+            style_cell={'textAlign': 'center'},  # Define los datos de la tabla
+        )
+    ], style={'display': 'inline-block', 'width': '48%','marginRight': '2%'}),
+    html.Div([
+        dash_table.DataTable(
+            id='table-2',
+            columns=[{'name': str(col), 'id': str(col)} for col in pivot_table2.columns],  
+            data=pivot_table2.to_dict('records'),  
+            style_table={'overflowX': 'auto'}, 
+            style_cell={'textAlign': 'center'},
+        )
+    ], style={'display': 'inline-block', 'width': '50%'}),
+    html.Div([
+        dcc.Graph(
+            id='scatter-plot',
+            figure=px.scatter(df, x='dias_entre_fechas', y=' Tasa', color='Segmento', title='Scatter Plot') ,
+        )
+    ], style={'display': 'inline-block', 'width': '50%'}),
+    html.Div([
+        dcc.Graph(
+            id='bar-chart',
+            figure=px.bar(accumulated_df, x='Mes', y=' Monto', color='Segmento', barmode='stack', title='Insturmentos operados por mes'),  # Define la figura del gráfico de barras
+        )
+    ], style={'display': 'inline-block', 'width': '50%'}),   
+
+])
+
+# Callback para actualizar las tablas
+
+
+# Callback para actualizar las tablas
+# Callback para actualizar las tablas
+@app.callback(
+    Output('table-1', 'data'),
+    Output('table-2', 'data'),
+    Output('scatter-plot', 'figure'),
+    Output('bar-chart', 'figure'),
+    Input('month-dropdown', 'value'),
+    Input('category-dropdown', 'value')
+)
+
+def update_tables(selected_month, categories):
+    # Copiar el DataFrame original para evitar modificarlo directamente
+    filtered_df = df.copy()
+
+    # Filtrar por mes seleccionado
+    if selected_month:  
+        filtered_df = filtered_df[filtered_df['Mes'].isin(selected_month)]
+
+    # Filtrar por categorías seleccionadas
+    if categories:
+        filtered_df = filtered_df[filtered_df['Segmento'].isin(categories)]
+    
+    # Crear tablas pivotantes y figuras
+    # Suma por fila, saltando la primera columna
+    pivot_table1['Total'] = pivot_table1[columnas_a_sumar].sum(axis=1)
+    pivot_table1.loc['Total por Columna'] = ['Total'] + suma_por_columna.tolist()
+
+    pivot_table2 = filtered_df.pivot_table(index='Segmento', columns='Periodo', values=' Tasa', aggfunc='mean', fill_value=0).reset_index()
+    scatter_fig = px.scatter(filtered_df, x='dias_entre_fechas', y=' Tasa', color='Segmento', title='Scatter Plot')
+    bar_fig =  px.bar(accumulated_df, x='Mes', y=' Monto', color='Segmento', barmode='stack', title='Instrumentos operados por mes')
+    pivot_table2 = pivot_table2.round(2)
+
+    # Devolver los resultados para los componentes de la interfaz de usuario
+    return pivot_table1.to_dict('records'), pivot_table2.to_dict('records'), scatter_fig, bar_fig
+if __name__ == '__main__':
+    app.run_server(debug=True)
+
