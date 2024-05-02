@@ -5,12 +5,13 @@ import os
 import dash
 from dash import dcc, html
 from dash.dependencies import Input, Output
-import dash_table
+from dash import dash_table
 import plotly.express as px
 import psycopg2
 import pandas as pd
 from datetime import datetime, timedelta
-from werkzeug.urls import url_quote  # Importa url_quote directamente
+
+ # Importa url_quote directamente
 
 
 # Conecta a la base de datos PostgreSQL
@@ -167,5 +168,5 @@ def update_tables(selected_month, categories):
     # Devolver los resultados para los componentes de la interfaz de usuario
     return pivot_table1.to_dict('records'), pivot_table2.to_dict('records'), scatter_fig, bar_fig
 if __name__ == '__main__':
-    app.run_server(debug=False, port=8080)
+    app.run_server(debug=False, port=8050)
 
