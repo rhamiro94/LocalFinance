@@ -14,23 +14,38 @@ from datetime import datetime, timedelta
  # Importa url_quote directamente
 
 
-# Conecta a la base de datos PostgreSQL
-conn = psycopg2.connect(
-    host="localhost",
-    database="mav2024",
-    user="postgres",
-    password="Camila1995."
-)
+
+
+# Define una función para conectar a la base de datos local
+def connect_to_database():
+    conn = psycopg2.connect(
+        host="localhost",  # Cambia localhost si tu base de datos no está en tu máquina local
+        database="mav2024",  # Cambia al nombre de tu base de datos
+        user="postgres",  # Cambia al nombre de usuario de tu base de datos
+        password="Camila1995."  # Cambia a la contraseña de tu base de datos
+    )
+    return conn
 
 # Define una función para cargar los datos de PostgreSQL en un DataFrame
-def carga_df_psql():
+def carga_df_psql(conn):
+    query = "SELECT * FROM mav2024;"
+    df = pd.read_sql(query, conn)
+    return df
+
+# Conecta a la base de datos PostgreSQL
+conn = connect_to_database()
+df = carga_df_psql(conn)
+conn.close()  # Cierra la conexión después de usarla
+# Define una función para cargar los datos de PostgreSQL en un DataFrame
+def carga_df_psql(conn):
     query = "SELECT * FROM mav2024;"
     df = pd.read_sql(query, conn)
     return df
 
 # Carga los datos de PostgreSQL en un DataFrame
-df = carga_df_psql()
-
+conn = connect_to_database()
+df = carga_df_psql(conn)
+conn.close()  # Cierra la conexión después de usarla
 #Definimos algunas fechas 
 # Obtener la fecha actual
 fecha_actual = datetime.now()
@@ -169,4 +184,5 @@ def update_tables(selected_month, categories):
     return pivot_table1.to_dict('records'), pivot_table2.to_dict('records'), scatter_fig, bar_fig
 if __name__ == '__main__':
     app.run_server(debug=False, port=8050)
+
 
