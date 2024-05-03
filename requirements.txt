@@ -5,3 +5,4 @@ dash-table==5.0.0
 plotly
 pandas==1.3.3
 flask
+gunicorn
