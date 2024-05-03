@@ -16,3 +16,4 @@ plotly==5.21.0
 psycopg2==2.9.9
 requests==2.26.0
 werkzeug==2.0.2
+--use-condar-requirements
