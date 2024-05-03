@@ -4,5 +4,4 @@ dash-html-components==2.0.0
 dash-table==5.0.0
 plotly
 pandas==1.3.3
-numpy==1.21.2
 flask
